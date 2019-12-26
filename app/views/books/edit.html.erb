@@ -1,0 +1,6 @@
+<h1><%= I18n.t('editing_book') %></h1>
+
+<%= render 'form', book: @book %>
+
+<%= link_to I18n.t('show'), @book %> |
+<%= link_to I18n.t('back'), books_path %>
