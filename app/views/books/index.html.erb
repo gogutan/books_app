@@ -19,7 +19,7 @@
         <td><%= book.title %></td>
         <td><%= book.memo %></td>
         <td><%= book.author %></td>
-        <td><%= book.picture %></td>
+        <td><%= image_tag(book.picture_url(:thumb)) if book.picture.present? %></td>
         <td><%= link_to I18n.t('show'), book %></td>
         <td><%= link_to I18n.t('edit'), edit_book_path(book) %></td>
         <td><%= link_to I18n.t('destroy'), book, method: :delete, data: { confirm: I18n.t('confirm') } %></td>
