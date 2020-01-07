@@ -40,3 +40,4 @@ en:
   created: Book was successfully created.
   updated: Book was successfully updated.
   destroyed: Book was successfully destroyed.
+  showing_items: "Showing %{from} to %{to} of %{items} records"
