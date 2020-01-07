@@ -25,6 +25,7 @@
         <td><%= link_to I18n.t('destroy'), book, method: :delete, data: { confirm: I18n.t('confirm') } %></td>
       </tr>
     <% end %>
+    <%= paginate @books %>
   </tbody>
 </table>
 
