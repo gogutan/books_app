@@ -20,4 +20,9 @@
   <%= @user.introduction %>
 </p>
 
+<p>
+  <strong><%= User.human_attribute_name('icon') %>:</strong>
+  <%= image_tag @user.icon if @user.icon.attached? %>
+</p>
+
 <%= link_to t('devise.shared.links.back'), :back %>
