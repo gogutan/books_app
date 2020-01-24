@@ -5,6 +5,7 @@ ja:
         postcode: 郵便番号
         address: 住所
         introduction: 自己紹介
+        icon: アイコン
   users:
     show:
       profile: "%{resource}プロフィール"

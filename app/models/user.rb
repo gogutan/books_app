@@ -5,6 +5,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
+  has_one_attached :icon
 
   def self.find_for_github_oauth(auth, signed_in_resource = nil)
     user = User.where(provider: auth.provider, uid: auth.uid).first
