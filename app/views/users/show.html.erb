@@ -6,6 +6,16 @@
 </p>
 
 <p>
+  <strong><%= t('following') %>:</strong>
+  <%= link_to @user.following.count, user_following_path(@user) %>
+</p>
+
+<p>
+  <strong><%= t('followers') %>:</strong>
+  <%= link_to @user.followers.count, user_followers_path(@user) %>
+</p>
+
+<p>
   <strong><%= User.human_attribute_name('postcode') %>:</strong>
   <%= @user.postcode %>
 </p>

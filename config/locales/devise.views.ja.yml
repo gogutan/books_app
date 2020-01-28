@@ -9,3 +9,9 @@ ja:
   users:
     show:
       profile: "%{resource}プロフィール"
+    following: 
+      show:
+        list: "%{resource}さんのフォロー一覧"
+    followers:
+      show:
+        list: "%{resource}さんのフォロワー一覧"
