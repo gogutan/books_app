@@ -12,6 +12,8 @@ ja:
   showing_items: "全%{items}件中、%{from}〜%{to}件を表示中"
   following: "フォロー中"
   followers: "フォロワー"
+  follow: "フォロー"
+  unfollow: "フォロー解除"
   activerecord:
     errors:
       messages:

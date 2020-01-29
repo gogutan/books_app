@@ -6,6 +6,10 @@
 </p>
 
 <p>
+  <%= render 'users/follow_form', user: @user %>
+</p>
+
+<p>
   <strong><%= t('following') %>:</strong>
   <%= link_to @user.following.count, user_following_path(@user) %>
 </p>

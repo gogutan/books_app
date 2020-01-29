@@ -43,3 +43,5 @@ en:
   showing_items: "Showing %{from} to %{to} of %{items} records"
   following: "Following"
   followers: "Followers"
+  follow: "Follow"
+  unfollow: "Unfollow"

@@ -1,6 +1,7 @@
 <h2><%= t('.list', resource: @user.email ) %></h2>
 <% @following_users.each do |following_user| %>
   <p>
-    <%= link_to following_user.email, user_path(following_user) %></br>
+    <%= link_to following_user.email, user_path(following_user) %>
+    <%= render 'users/follow_form', user: following_user %></br>
   </p>
 <% end %>
