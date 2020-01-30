@@ -19,7 +19,7 @@
 </p>
 
 <p>
-  <strong><%= "投稿者" %>:</strong>
+  <strong><%= Book.human_attribute_name('user_id') %>:</strong>
   <%= link_to User.find(@book.user_id).email, user_path(@book.user_id) %>
 </p>
 

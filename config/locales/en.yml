@@ -45,3 +45,9 @@ en:
   followers: "Followers"
   follow: "Follow"
   unfollow: "Unfollow"
+  timeline: "Timeline"
+  activerecord:
+    attributes:
+      book:
+        user_id: "Contributor"
+        

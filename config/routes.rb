@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   }
   root to: "books#index"
   scope "(:locale)" do
+    namespace :books do
+      resources :timeline, only: [:index]
+    end
     resources :books
     resources :users, only: [:show] do
       resource :following, only: [:show], controller: "users/following"
