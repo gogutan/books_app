@@ -10,6 +10,11 @@ ja:
   updated: 本が更新されました。
   destroyed: 本が削除されました。
   showing_items: "全%{items}件中、%{from}〜%{to}件を表示中"
+  following: "フォロー中"
+  followers: "フォロワー"
+  follow: "フォロー"
+  unfollow: "フォロー解除"
+  timeline: "タイムライン"
   activerecord:
     errors:
       messages:
@@ -25,6 +30,7 @@ ja:
         memo: メモ
         author: 著者
         picture: 画像
+        user_id: 投稿者
   date:
     abbr_day_names:
     - 日

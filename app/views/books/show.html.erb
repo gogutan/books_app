@@ -18,5 +18,10 @@
   <%= image_tag(@book.picture_url) if @book.picture.present? %>
 </p>
 
+<p>
+  <strong><%= Book.human_attribute_name('user_id') %>:</strong>
+  <%= link_to User.find(@book.user_id).email, user_path(@book.user_id) %>
+</p>
+
 <%= link_to I18n.t('edit'), edit_book_path(@book) %> |
 <%= link_to I18n.t('back'), books_path %>

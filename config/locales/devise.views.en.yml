@@ -1,0 +1,8 @@
+en:
+  users:
+    following: 
+      show:
+        list: "%{resource}'s Following"
+    followers:
+      show:
+        list: "%{resource}'s Followers"

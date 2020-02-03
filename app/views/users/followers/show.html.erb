@@ -1,0 +1,7 @@
+<h2><%= t('.list', resource: @user.email ) %></h2>
+<% @followers.each do |follower| %>
+  <p>
+    <%= link_to follower.email, user_path(follower) %>
+    <%= render 'users/follow_form', user: follower %></br>
+  </p>
+<% end %>

@@ -26,8 +26,9 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
-    @book = Book.new(book_params)
-
+    params = book_params
+    params["user_id"] = current_user.id
+    @book = Book.new(params)
     respond_to do |format|
       if @book.save
         format.html { redirect_to @book, notice: I18n.t("created") }
