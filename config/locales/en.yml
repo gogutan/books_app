@@ -46,6 +46,8 @@ en:
   follow: "Follow"
   unfollow: "Unfollow"
   timeline: "Timeline"
+  new_report: "New report"
+  editing_report: "Editing Report"
   activerecord:
     attributes:
       book:

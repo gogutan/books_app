@@ -1,19 +1,17 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Title:</strong>
+  <strong><%= Report.human_attribute_name('title') %>:</strong>
   <%= @report.title %>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong><%= Report.human_attribute_name('content') %>:</strong>
   <%= @report.content %>
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong><%= Report.human_attribute_name('user') %>:</strong>
   <%= @report.user_id %>
 </p>
 
-<%= link_to 'Edit', edit_report_path(@report) %> |
-<%= link_to 'Back', reports_path %>
+<%= link_to I18n.t('edit'), edit_report_path(@report) %> |
+<%= link_to I18n.t('back'), reports_path %>
