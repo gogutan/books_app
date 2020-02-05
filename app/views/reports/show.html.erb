@@ -1,4 +1,9 @@
 <p>
+  <strong><%= Report.human_attribute_name('user') %>:</strong>
+  <%= link_to User.find(@report.user_id).email, user_path(@report.user_id) %>
+</p>
+
+<p>
   <strong><%= Report.human_attribute_name('title') %>:</strong>
   <%= @report.title %>
 </p>
@@ -6,11 +11,6 @@
 <p>
   <strong><%= Report.human_attribute_name('content') %>:</strong>
   <%= @report.content %>
-</p>
-
-<p>
-  <strong><%= Report.human_attribute_name('user') %>:</strong>
-  <%= @report.user_id %>
 </p>
 
 <%= link_to I18n.t('edit'), edit_report_path(@report) %> |
