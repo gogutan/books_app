@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       resource :followers, only: [:show], controller: "users/followers"
     end
     resources :relationships, only: [:create, :destroy]
+    resources :reports
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
