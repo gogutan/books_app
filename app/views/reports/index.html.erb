@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+    <th><%= Report.human_attribute_name('created_at') %></th>
     <th><%= Report.human_attribute_name('user') %></th>
     <th><%= Report.human_attribute_name('title') %></th>
     <th><%= Report.human_attribute_name('content') %></th>
@@ -14,6 +15,7 @@
     <% @reports.each do |report| %>
       <% user = User.find(report.user_id) %>
       <tr>
+        <td><%= I18n.l(report.created_at.to_date, format: :long) %></td>
         <td><%= link_to user.email, user_path(user.id) %></td>
         <td><%= report.title %></td>
         <td><%= report.content %></td>

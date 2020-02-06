@@ -1,4 +1,9 @@
 <p>
+  <strong><%= Report.human_attribute_name('created_at') %>:</strong>
+  <%= I18n.l(@report.created_at.to_date, format: :long) %>
+</p>
+
+<p>
   <strong><%= Report.human_attribute_name('user') %>:</strong>
   <%= link_to User.find(@report.user_id).email, user_path(@report.user_id) %>
 </p>

@@ -38,6 +38,7 @@ ja:
         title: タイトル
         content: 内容
         user: ユーザ
+        created_at: 投稿日
   date:
     abbr_day_names:
     - 日
