@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show] do
       resource :following, only: [:show], controller: "users/following"
       resource :followers, only: [:show], controller: "users/followers"
+      resource :reports, only: [:show], controller: "users/reports"
     end
     resources :relationships, only: [:create, :destroy]
     resources :reports

@@ -15,3 +15,6 @@ ja:
     followers:
       show:
         list: "%{resource}さんのフォロワー一覧"
+    reports:
+      show:
+        list: "%{resource}さんの日報一覧"
