@@ -17,6 +17,15 @@
   <strong><%= Report.human_attribute_name('content') %>:</strong>
   <%= @report.content %>
 </p>
+
+<p>
+  <strong><%= Comment.model_name.human %></strong>
+  <br>
+  <%= render 'comments/comments', comments: @comments %>
+</p>
+
+<%= render 'comments/form', comment: @comment, id: @report.id, type: @report.class.to_s %>
+
 <% if current_user == @report.user %>
   <%= link_to I18n.t('edit'), edit_report_path(@report) %> |
 <% end %>

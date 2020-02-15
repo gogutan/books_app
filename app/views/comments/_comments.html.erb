@@ -1,0 +1,14 @@
+<% @comments.each do |comment| %>
+  <p>
+    <% user = comment.user %>
+    <%= link_to user.email, user_path(user.id) %>
+    <%= I18n.l(comment.created_at, format: :long) %>
+  </p>
+  <p>
+    <%= comment.content %>
+    <% if current_user == user %>
+    <%= link_to I18n.t('edit'), edit_comment_path(comment) %>
+    <%= link_to I18n.t('destroy'), comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </p>
+  <% end %>
+<% end %>

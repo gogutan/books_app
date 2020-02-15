@@ -23,5 +23,13 @@
   <%= link_to User.find(@book.user_id).email, user_path(@book.user_id) %>
 </p>
 
+<p>
+  <strong><%= Comment.model_name.human %></strong>
+  <br>
+  <%= render 'comments/comments', comments: @comments %>
+</p>
+
+<%= render 'comments/form', comment: @comment, id: @book.id, type: @book.class.to_s %>
+
 <%= link_to I18n.t('edit'), edit_book_path(@book) %> |
 <%= link_to I18n.t('back'), books_path %>

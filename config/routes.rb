@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :comments
   devise_for :users, controllers: {
     sessions: "users/sessions",
     registrations: "users/registrations",
@@ -21,6 +20,7 @@ Rails.application.routes.draw do
     end
     resources :relationships, only: [:create, :destroy]
     resources :reports
+    resources :comments, only: [:create, :edit, :update, :destroy]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

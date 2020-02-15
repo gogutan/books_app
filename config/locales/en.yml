@@ -48,6 +48,7 @@ en:
   timeline: "Timeline"
   new_report: "New report"
   editing_report: "Editing Report"
+  editing_comment: "Editing Comment"
   activerecord:
     attributes:
       book:
