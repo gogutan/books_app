@@ -1,56 +1,41 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  before_action :set_comment, :correct_user, only: [:edit, :update, :destroy]
+  before_action :set_comment, only: [:edit, :update, :destroy]
 
   # GET /comments/1/edit
   def edit
   end
 
   # POST /comments
-  # POST /comments.json
   def create
-    @comment = Comment.new(comment_params)
-    @comment.user = current_user
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to commentable, notice: "Comment was successfully created." }
-        format.json { render :show, status: :created, location: commentable }
-      else
-        format.html { redirect_to commentable }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
+    @comment = current_user.comments.new(comment_params)
+    if @comment.save
+      redirect_to commentable, notice: "Comment was successfully created."
+    else
+      redirect_to commentable
     end
   end
 
   # PATCH/PUT /comments/1
-  # PATCH/PUT /comments/1.json
   def update
-    respond_to do |format|
-      if @comment.update(comment_params)
-        format.html { redirect_to commentable, notice: "Comment was successfully updated." }
-        format.json { render :show, status: :ok, location: commentable }
-      else
-        format.html { redirect_to commentable }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
+    if @comment.update(comment_params)
+      redirect_to commentable, notice: "Comment was successfully updated."
+    else
+      redirect_to commentable
     end
   end
 
   # DELETE /comments/1
-  # DELETE /comments/1.json
   def destroy
     @comment.destroy
-    respond_to do |format|
-      format.html { redirect_to commentable, notice: "Comment was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to commentable, notice: "Comment was successfully destroyed."
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
-      @comment = Comment.find(params[:id])
+      @comment = current_user.comments.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -60,9 +45,5 @@ class CommentsController < ApplicationController
 
     def commentable
       @comment.commentable
-    end
-
-    def correct_user
-      redirect_to root_path unless set_comment.user == current_user
     end
 end
