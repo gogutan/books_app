@@ -24,7 +24,7 @@
   <%= render 'comments/comments', comments: @comments %>
 </p>
 
-<%= render 'comments/form', comment: @comment, id: @report.id, type: @report.class.to_s %>
+<%= render 'comments/form', comment: @comment %>
 
 <% if current_user == @report.user %>
   <%= link_to t(:edit), edit_report_path(@report) %> |

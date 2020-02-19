@@ -12,8 +12,8 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
-    @comment = Comment.new
-    @comments = @book.comments
+    @comment = @book.comments.new
+    @comments = @book.comments.where.not(id: nil)
   end
 
   # GET /books/new
