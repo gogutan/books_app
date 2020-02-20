@@ -13,7 +13,9 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to commentable, notice: "Comment was successfully created."
     else
-      redirect_to commentable
+      errors = {}
+      @comment.errors.each { |k, v| errors[k] = v }
+      redirect_to commentable, flash: { errors: errors }
     end
   end
 
@@ -22,7 +24,7 @@ class CommentsController < ApplicationController
     if @comment.update(comment_params)
       redirect_to commentable, notice: "Comment was successfully updated."
     else
-      redirect_to commentable
+      render :edit
     end
   end
 
