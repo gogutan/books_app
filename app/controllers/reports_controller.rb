@@ -2,12 +2,12 @@
 
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :report_user_should_be_current_user, only: [:edit, :update, :destroy]
 
   # GET /reports
   # GET /reports.json
   def index
-    @reports = Report.all.order(created_at: :desc)
+    @reports = Report.order(created_at: :desc)
   end
 
   # GET /reports/1
@@ -18,7 +18,7 @@ class ReportsController < ApplicationController
 
   # GET /reports/new
   def new
-    @report = Report.new
+    @report = current_user.reports.new
   end
 
   # GET /reports/1/edit
@@ -61,7 +61,7 @@ class ReportsController < ApplicationController
       params.require(:report).permit(:title, :content, :user_id)
     end
 
-    def correct_user
+    def report_user_should_be_current_user
       redirect_to reports_path unless @report.user == current_user
     end
 end
