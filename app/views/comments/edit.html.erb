@@ -1,5 +1,5 @@
 <h1><%= t(:editing_comment) %></h1>
 
-<%= render 'form', comment: @comment, id: @comment.commentable_id, type: @comment.commentable_type %>
+<%= render 'form', comment: @comment %>
 
 <%= link_to t(:back), @comment.commentable %>
