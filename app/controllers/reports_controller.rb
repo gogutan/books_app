@@ -13,8 +13,7 @@ class ReportsController < ApplicationController
   # GET /reports/1
   # GET /reports/1.json
   def show
-    @comment = @report.comments.new
-    @comments = @report.comments.where.not(id: nil)
+    @comments = @report.comments.order(created_at: :asc)
   end
 
   # GET /reports/new
