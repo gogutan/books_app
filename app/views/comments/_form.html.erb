@@ -16,6 +16,10 @@
     <%= form.text_area :content %>
   </div>
 
+  <%= form.hidden_field :commentable_id, value: comment.commentable_id %>
+
+  <%= form.hidden_field :commentable_type, value: comment.commentable_type %>
+
   <div class="actions">
     <%= form.submit %>
   </div>
