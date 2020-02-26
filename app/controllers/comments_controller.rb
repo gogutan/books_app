@@ -7,18 +7,6 @@ class CommentsController < ApplicationController
   def edit
   end
 
-  # POST /comments
-  def create
-    @comment = current_user.comments.new(comment_params)
-    if @comment.save
-      redirect_to commentable, notice: "Comment was successfully created."
-    else
-      errors = {}
-      @comment.errors.each { |k, v| errors[k] = v }
-      redirect_to commentable, flash: { errors: errors }
-    end
-  end
-
   # PATCH/PUT /comments/1
   def update
     if @comment.update(comment_params)

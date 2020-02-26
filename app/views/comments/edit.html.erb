@@ -1,5 +1,5 @@
 <h1><%= t(:editing_comment) %></h1>
 
-<%= render 'form', comment: @comment %>
+<%= render 'form', comment: @comment, url: comment_path %>
 
 <%= link_to t(:back), @comment.commentable %>
