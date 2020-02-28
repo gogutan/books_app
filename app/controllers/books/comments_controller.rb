@@ -2,12 +2,13 @@
 
 class Books::CommentsController < ApplicationController
   def create
-    @comment = current_user.comments.new(comment_params)
+    @book = Book.find(params[:book_id])
+    @comment = @book.comments.new(comment_params)
+    @comment.user = current_user
     if @comment.save
-      redirect_to commentable, notice: "Comment was successfully created."
+      redirect_to @book, notice: "Comment was successfully created."
     else
-      @book = commentable
-      @comments = @book.comments.order(created_at: :asc)
+      @comments = @book.comments.sorted
       render "books/show"
     end
   end
@@ -15,10 +16,6 @@ class Books::CommentsController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:content, :commentable_id, :commentable_type)
-    end
-
-    def commentable
-      @comment.commentable
+      params.require(:comment).permit(:content)
     end
 end
