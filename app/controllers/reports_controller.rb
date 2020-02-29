@@ -13,7 +13,7 @@ class ReportsController < ApplicationController
   # GET /reports/1
   # GET /reports/1.json
   def show
-    @comments = @report.comments.order(created_at: :asc)
+    @comments = @report.comments.sorted
   end
 
   # GET /reports/new
