@@ -39,4 +39,9 @@
   <%= image_tag @user.icon if @user.icon.attached? %>
 </p>
 
+<p>
+  <strong><%= Report.model_name.human %>:</strong>
+  <%= link_to @user.reports.count, user_reports_path(@user) %>
+</p>
+
 <%= link_to t('devise.shared.links.back'), :back %>

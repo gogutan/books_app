@@ -6,3 +6,6 @@ en:
     followers:
       show:
         list: "%{resource}'s Followers"
+    reports:
+      show:
+        list: "%{resource}'s Reports"

@@ -1,0 +1,32 @@
+<p>
+  <strong><%= Report.human_attribute_name(:created_at) %>:</strong>
+  <%= l(@report.created_at.to_date, format: :long) %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:user) %>:</strong>
+  <%= link_to @report.user.email, user_path(@report.user) %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:title) %>:</strong>
+  <%= @report.title %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:content) %>:</strong>
+  <%= @report.content %>
+</p>
+
+<p>
+  <strong><%= Comment.model_name.human %></strong>
+  <br>
+  <%= render 'comments/comments', comments: @comments %>
+</p>
+
+<%= render 'comments/form', comment: @comment || @report.comments.new, url: report_comments_path(@report) %>
+
+<% if current_user == @report.user %>
+  <%= link_to t(:edit), edit_report_path(@report) %> |
+<% end %>
+<%= link_to t(:back), reports_path %>

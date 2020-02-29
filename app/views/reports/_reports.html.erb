@@ -1,0 +1,29 @@
+<table>
+  <thead>
+    <tr>
+      <th><%= Report.human_attribute_name(:created_at) %></th>
+      <th><%= Report.human_attribute_name(:user) %></th>
+      <th><%= Report.human_attribute_name(:title) %></th>
+      <th><%= Report.human_attribute_name(:content) %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reports.each do |report| %>
+      <% user = report.user %>
+      <% correct_user = current_user == user %>
+      <tr>
+        <td><%= l(report.created_at.to_date, format: :long) %></td>
+        <td><%= link_to user.email, user_path(user) %></td>
+        <td><%= report.title %></td>
+        <td><%= report.content %></td>
+        <td><%= link_to t(:show), report %></td>
+        <td><%= link_to t(:edit), edit_report_path(report) if correct_user %></td>
+        <td><%= link_to t(:destroy), report, method: :delete, data: { confirm: 'Are you sure?' } if correct_user %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

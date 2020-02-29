@@ -15,6 +15,9 @@ ja:
   follow: "フォロー"
   unfollow: "フォロー解除"
   timeline: "タイムライン"
+  new_report: "新しい日報の追加"
+  editing_report: "日報の編集"
+  editing_comment: コメントの編集
   activerecord:
     errors:
       messages:
@@ -24,6 +27,8 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     models:
       book: 本
+      report: 日報
+      comment: コメント
     attributes:
       book:
         title: タイトル
@@ -31,6 +36,13 @@ ja:
         author: 著者
         picture: 画像
         user_id: 投稿者
+      report:
+        title: タイトル
+        content: 内容
+        user: ユーザ
+        created_at: 投稿日
+      comment:
+        content: コメント内容
   date:
     abbr_day_names:
     - 日

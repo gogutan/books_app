@@ -1,27 +1,35 @@
 <p>
-  <strong><%= Book.human_attribute_name('title') %>:</strong>
+  <strong><%= Book.human_attribute_name(:title) %>:</strong>
   <%= @book.title %>
 </p>
 
 <p>
-  <strong><%= Book.human_attribute_name('memo') %>:</strong>
+  <strong><%= Book.human_attribute_name(:memo) %>:</strong>
   <%= @book.memo %>
 </p>
 
 <p>
-  <strong><%= Book.human_attribute_name('author') %>:</strong>
+  <strong><%= Book.human_attribute_name(:author) %>:</strong>
   <%= @book.author %>
 </p>
 
 <p>
-  <strong><%= Book.human_attribute_name('picture') %>:</strong>
+  <strong><%= Book.human_attribute_name(:picture) %>:</strong>
   <%= image_tag(@book.picture_url) if @book.picture.present? %>
 </p>
 
 <p>
-  <strong><%= Book.human_attribute_name('user_id') %>:</strong>
-  <%= link_to User.find(@book.user_id).email, user_path(@book.user_id) %>
+  <strong><%= Book.human_attribute_name(:user_id) %>:</strong>
+  <%= link_to @book.user.email, user_path(@book.user) %>
 </p>
 
-<%= link_to I18n.t('edit'), edit_book_path(@book) %> |
-<%= link_to I18n.t('back'), books_path %>
+<p>
+  <strong><%= Comment.model_name.human %></strong>
+  <br>
+  <%= render 'comments/comments', comments: @comments %>
+</p>
+
+<%= render 'comments/form', comment: @comment || @book.comments.new, url: book_comments_path(@book) %>
+
+<%= link_to t(:edit), edit_book_path(@book) %> |
+<%= link_to t(:back), books_path %>
