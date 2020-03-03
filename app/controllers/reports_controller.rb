@@ -5,13 +5,11 @@ class ReportsController < ApplicationController
   before_action :report_user_should_be_current_user, only: [:edit, :update, :destroy]
 
   # GET /reports
-  # GET /reports.json
   def index
     @reports = Report.order(created_at: :desc)
   end
 
   # GET /reports/1
-  # GET /reports/1.json
   def show
     @comments = @report.comments.sorted
   end
