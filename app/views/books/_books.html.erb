@@ -1,11 +1,11 @@
 <table>
   <thead>
     <tr>
-      <th><%= Book.human_attribute_name('user_id') %></th>
-      <th><%= Book.human_attribute_name('title') %></th>
-      <th><%= Book.human_attribute_name('memo') %></th>
-      <th><%= Book.human_attribute_name('author') %></th>
-      <th><%= Book.human_attribute_name('picture') %></th>
+      <th><%= Book.human_attribute_name(:user_id) %></th>
+      <th><%= Book.human_attribute_name(:title) %></th>
+      <th><%= Book.human_attribute_name(:memo) %></th>
+      <th><%= Book.human_attribute_name(:author) %></th>
+      <th><%= Book.human_attribute_name(:picture) %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,16 +19,16 @@
         <td><%= book.memo %></td>
         <td><%= book.author %></td>
         <td><%= image_tag(book.picture_url(:thumb)) if book.picture.present? %></td>
-        <td><%= link_to I18n.t('show'), book %></td>
-        <td><%= link_to I18n.t('edit'), edit_book_path(book) %></td>
-        <td><%= link_to I18n.t('destroy'), book, method: :delete, data: { confirm: I18n.t('confirm') } %></td>
+        <td><%= link_to t(:show), book %></td>
+        <td><%= link_to t(:edit), edit_book_path(book) %></td>
+        <td><%= link_to t(:destroy), book, method: :delete, data: { confirm: t(:confirm) } %></td>
       </tr>
     <% end %>
     <%= paginate @books %>
-    <%= I18n.t('showing_items', items: @books.total_count, from: @books.offset_value + 1, to: @books.offset_value + @books.length) %>
+    <%= t(:showing_items, items: @books.total_count, from: @books.offset_value + 1, to: @books.offset_value + @books.length) %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to I18n.t('new_book'), new_book_path %>
+<%= link_to t(:new_book), new_book_path %>

@@ -32,7 +32,7 @@ class BooksController < ApplicationController
     @book = Book.new(params)
     respond_to do |format|
       if @book.save
-        format.html { redirect_to @book, notice: I18n.t("created") }
+        format.html { redirect_to @book, notice: t(:created) }
         format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class BooksController < ApplicationController
   def update
     respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to @book, notice: I18n.t("updated") }
+        format.html { redirect_to @book, notice: t(:updated) }
         format.json { render :show, status: :ok, location: @book }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class BooksController < ApplicationController
   def destroy
     @book.destroy
     respond_to do |format|
-      format.html { redirect_to books_url, notice: I18n.t("destroyed") }
+      format.html { redirect_to books_url, notice: t(:destroyed) }
       format.json { head :no_content }
     end
   end
