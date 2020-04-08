@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
   has_many :reports, dependent: :destroy
   has_many :comments, dependent: :destroy
+  validates :provider, uniqueness: { scope: :uid }
   def self.find_for_github_oauth(auth, signed_in_resource = nil)
     user = User.where(provider: auth.provider, uid: auth.uid).first
     unless user
