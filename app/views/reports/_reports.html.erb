@@ -14,7 +14,7 @@
       <% user = report.user %>
       <% correct_user = current_user == user %>
       <tr>
-        <td><%= l(report.created_at.to_date, format: :long) %></td>
+        <td><div class="report_created_at"><%= l(report.created_at.to_date, format: :long) %></div></td>
         <td><%= link_to user.email, user_path(user) %></td>
         <td><%= report.title %></td>
         <td><%= report.content %></td>
