@@ -6,18 +6,26 @@ ja:
   confirm: 削除しますか？
   back: 戻る
   editing_book: 本の編集
-  created: 新しい本が追加されました。
-  updated: 本が更新されました。
-  destroyed: 本が削除されました。
+  created_book: 新しい本が追加されました。
+  updated_book: 本が更新されました。
+  destroyed_book: 本が削除されました。
   showing_items: "全%{items}件中、%{from}〜%{to}件を表示中"
   following: "フォロー中"
   followers: "フォロワー"
   follow: "フォロー"
   unfollow: "フォロー解除"
+  followed: ユーザーをフォローしました。
+  unfollowed: ユーザーをフォロー解除しました。
   timeline: "タイムライン"
   new_report: "新しい日報の追加"
   editing_report: "日報の編集"
+  created_report: 新しい日報が追加されました。
+  updated_report: 日報が更新されました。
+  destroyed_report: 日報が削除されました。
   editing_comment: コメントの編集
+  created_comment: 新しいコメントが追加されました。
+  updated_comment: コメントが更新されました。
+  destroyed_comment: コメントが削除されました。
   activerecord:
     errors:
       messages:

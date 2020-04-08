@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   def update
     if @comment.update(comment_params)
-      redirect_to commentable, notice: "Comment was successfully updated."
+      redirect_to commentable, notice: t(:updated_comment)
     else
       render :edit
     end
@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   def destroy
     @comment.destroy
-    redirect_to commentable, notice: "Comment was successfully destroyed."
+    redirect_to commentable, notice: t(:destroyed_comment)
   end
 
   private

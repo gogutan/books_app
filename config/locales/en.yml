@@ -37,18 +37,26 @@ en:
   confirm: Are you sure?
   back: Back
   editing_book: Editing Book
-  created: Book was successfully created.
-  updated: Book was successfully updated.
-  destroyed: Book was successfully destroyed.
+  created_book: Book was successfully created.
+  updated_book: Book was successfully updated.
+  destroyed_book: Book was successfully destroyed.
   showing_items: "Showing %{from} to %{to} of %{items} records"
   following: "Following"
   followers: "Followers"
   follow: "Follow"
   unfollow: "Unfollow"
+  followed: Successfully followed the user.
+  unfollowed: Successfully unfollowed the user.
   timeline: "Timeline"
   new_report: "New report"
   editing_report: "Editing Report"
+  created_report: Report was successfully created.
+  updated_report: Report was successfully updated.
+  destroyed_report: Report was successfully destroyed.
   editing_comment: "Editing Comment"
+  created_comment: Comment was successfully created.
+  updated_comment: Comment was successfully updated.
+  destroyed_comment: Comment was successfully destroyed.
   activerecord:
     attributes:
       book:

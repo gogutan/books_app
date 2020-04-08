@@ -28,7 +28,7 @@ class BooksController < ApplicationController
     params["user_id"] = current_user.id
     @book = Book.new(params)
     if @book.save
-      redirect_to @book, notice: t(:created)
+      redirect_to @book, notice: t(:created_book)
     else
       render :new
     end
@@ -37,7 +37,7 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1
   def update
     if @book.update(book_params)
-      redirect_to @book, notice: t(:updated)
+      redirect_to @book, notice: t(:updated_book)
     else
       render :edit
     end
@@ -46,7 +46,7 @@ class BooksController < ApplicationController
   # DELETE /books/1
   def destroy
     @book.destroy
-    redirect_to books_url, notice: t(:destroyed)
+    redirect_to books_url, notice: t(:destroyed_book)
   end
 
   private

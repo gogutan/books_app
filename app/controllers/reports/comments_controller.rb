@@ -6,7 +6,7 @@ class Reports::CommentsController < ApplicationController
     @comment = @report.comments.new(comment_params)
     @comment.user = current_user
     if @comment.save
-      redirect_to @report, notice: "Comment was successfully created."
+      redirect_to @report, notice: t(:created_comment)
     else
       @comments = @report.comments.sorted
       render "reports/show"

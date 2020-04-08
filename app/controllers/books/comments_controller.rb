@@ -6,7 +6,7 @@ class Books::CommentsController < ApplicationController
     @comment = @book.comments.new(comment_params)
     @comment.user = current_user
     if @comment.save
-      redirect_to @book, notice: "Comment was successfully created."
+      redirect_to @book, notice: t(:created_comment)
     else
       @comments = @book.comments.sorted
       render "books/show"
