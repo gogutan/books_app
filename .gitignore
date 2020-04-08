@@ -35,4 +35,7 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
-/test/*
+/test/controllers/*
+/test/helpers/*
+/test/integration/*
+/test/mailers/*
