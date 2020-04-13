@@ -1,17 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id: 1
-  user_id: 1
+  user: one
   content: Example Content 1
-  commentable_type: Book
-  commentable_id: 1
+  commentable: one (Book)
+  # commentable_type: Book
+  # commentable_id: 1
   created_at: 2020-04-01 11:11:11
 
 two:
-  id: 2
-  user_id: 2
+  user: two
   content: Example Content 2
-  commentable_type: Book
-  commentable_id: 1
+  commentable: two (Book)
+  # commentable_type: Book
+  # commentable_id: 1
   created_at: 2020-04-02 11:11:11
