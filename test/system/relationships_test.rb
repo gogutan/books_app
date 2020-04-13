@@ -9,13 +9,17 @@ class RelationshipsTest < ApplicationSystemTestCase
 
   test "follow a user" do
     visit user_path(users(:three))
-    click_on "フォロー"
+    within "form[class=new_relationship]" do
+      click_on "フォロー"
+    end
     assert_text "ユーザーをフォローしました。"
   end
 
   test "unfollow a user" do
     visit user_path(users(:two))
-    click_on "フォロー解除"
+    within "form[class=edit_relationship]" do
+      click_on "フォロー解除"
+    end
     assert_text "ユーザーをフォロー解除しました。"
   end
 end

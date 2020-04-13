@@ -15,9 +15,11 @@ class ReportsTest < ApplicationSystemTestCase
   test "create a Report" do
     visit reports_url
     click_on "新しい日報の追加"
-    fill_in "タイトル", with: "Example Report"
-    fill_in "内容", with: "Example Content"
-    click_on "登録する"
+    within "form[name=report]" do
+      fill_in "タイトル", with: "Example Report"
+      fill_in "内容", with: "Example Content"
+      click_on "登録する"
+    end
     assert_text "新しい日報が追加されました。"
   end
 
@@ -30,9 +32,11 @@ class ReportsTest < ApplicationSystemTestCase
   test "update a Report" do
     visit reports_url
     click_on "編集", match: :first
-    fill_in "タイトル", with: "Updated Report"
-    fill_in "内容", with: "Updated Content"
-    click_on "更新する"
+    within "form[name=report]" do
+      fill_in "タイトル", with: "Updated Report"
+      fill_in "内容", with: "Updated Content"
+      click_on "更新する"
+    end
     assert_text "日報が更新されました。"
   end
 
@@ -47,34 +51,42 @@ class ReportsTest < ApplicationSystemTestCase
   test "should not create a Report without title" do
     visit reports_url
     click_on "新しい日報の追加"
-    fill_in "内容", with: "Example Content"
-    click_on "登録する"
+    within "form[name=report]" do
+      fill_in "内容", with: "Example Content"
+      click_on "登録する"
+    end
     assert_text "タイトルを入力してください"
   end
 
   test "should not update a Report without title" do
     visit reports_url
     click_on "編集", match: :first
-    fill_in "タイトル", with: ""
-    fill_in "内容", with: "Updated Content"
-    click_on "更新する"
+    within "form[name=report]" do
+      fill_in "タイトル", with: ""
+      fill_in "内容", with: "Updated Content"
+      click_on "更新する"
+    end
     assert_text "タイトルを入力してください"
   end
 
   test "should not create a Report without content" do
     visit reports_url
     click_on "新しい日報の追加"
-    fill_in "タイトル", with: "Example Report"
-    click_on "登録する"
+    within "form[name=report]" do
+      fill_in "タイトル", with: "Example Report"
+      click_on "登録する"
+    end
     assert_text "内容を入力してください"
   end
 
   test "should not update a Report without content" do
     visit reports_url
     click_on "編集", match: :first
-    fill_in "タイトル", with: "Updated Report"
-    fill_in "内容", with: ""
-    click_on "更新する"
+    within "form[name=report]" do
+      fill_in "タイトル", with: "Updated Report"
+      fill_in "内容", with: ""
+      click_on "更新する"
+    end
     assert_text "内容を入力してください"
   end
 

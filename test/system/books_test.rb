@@ -15,10 +15,12 @@ class BooksTest < ApplicationSystemTestCase
   test "create a Book" do
     visit books_url
     click_on "新しい本の追加"
-    fill_in "タイトル", with: "Example Book"
-    fill_in "メモ", with: "Example Memo"
-    fill_in "著者", with: "Example Author"
-    click_on "登録する"
+    within "form[name=book]" do
+      fill_in "タイトル", with: "Example Book"
+      fill_in "メモ", with: "Example Memo"
+      fill_in "著者", with: "Example Author"
+      click_on "登録する"
+    end
     assert_text "新しい本が追加されました。"
   end
 
@@ -31,10 +33,12 @@ class BooksTest < ApplicationSystemTestCase
   test "update a Book" do
     visit books_url
     click_on "編集", match: :first
-    fill_in "タイトル", with: "Updated Book"
-    fill_in "メモ", with: "Updated Memo"
-    fill_in "著者", with: "Updated Author"
-    click_on "更新する"
+    within "form[name=book]" do
+      fill_in "タイトル", with: "Updated Book"
+      fill_in "メモ", with: "Updated Memo"
+      fill_in "著者", with: "Updated Author"
+      click_on "更新する"
+    end
     assert_text "本が更新されました"
   end
 
@@ -49,19 +53,23 @@ class BooksTest < ApplicationSystemTestCase
   test "should not create a Book without title" do
     visit books_url
     click_on "新しい本の追加"
-    fill_in "メモ", with: "Example Memo"
-    fill_in "著者", with: "Example Author"
-    click_on "登録する"
+    within "form[name=book]" do
+      fill_in "メモ", with: "Example Memo"
+      fill_in "著者", with: "Example Author"
+      click_on "登録する"
+    end
     assert_text "タイトルを入力してください"
   end
 
   test "should not update a Book without title" do
     visit books_url
     click_on "編集", match: :first
-    fill_in "タイトル", with: ""
-    fill_in "メモ", with: "Updated Memo"
-    fill_in "著者", with: "Updated Author"
-    click_on "更新する"
+    within "form[name=book]" do
+      fill_in "タイトル", with: ""
+      fill_in "メモ", with: "Updated Memo"
+      fill_in "著者", with: "Updated Author"
+      click_on "更新する"
+    end
     assert_text "タイトルを入力してください"
   end
 end
