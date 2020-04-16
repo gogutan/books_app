@@ -4,7 +4,7 @@ require "application_system_test_case"
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
-    login_user("one@example.com", "password")
+    login_user("1@example.com", "password")
   end
 
   test "visit the reports index" do

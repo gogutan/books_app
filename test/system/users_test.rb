@@ -18,13 +18,13 @@ class UsersTest < ApplicationSystemTestCase
   end
 
   test "show a User" do
-    login_user("one@example.com", "password")
-    visit user_path(users(:one))
-    assert_text "Eメール: one@example.com"
+    login_user("1@example.com", "password")
+    visit user_path(users(1))
+    assert_text "Eメール: 1@example.com"
   end
 
   test "update a User" do
-    login_user("one@example.com", "password")
+    login_user("1@example.com", "password")
     visit edit_user_registration_path
     within "form[class=edit_user]" do
       fill_in "Eメール", with: "updated@example.com"
@@ -38,7 +38,7 @@ class UsersTest < ApplicationSystemTestCase
   end
 
   test "destroy a User" do
-    login_user("one@example.com", "password")
+    login_user("1@example.com", "password")
     visit edit_user_registration_path
     within "form[class=button_to]" do
       accept_confirm do

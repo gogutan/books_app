@@ -4,11 +4,11 @@ require "application_system_test_case"
 
 class RelationshipsTest < ApplicationSystemTestCase
   setup do
-    login_user("one@example.com", "password")
+    login_user("1@example.com", "password")
   end
 
   test "follow a user" do
-    visit user_path(users(:three))
+    visit user_path(users(3))
     within "form[class=new_relationship]" do
       click_on "フォロー"
     end
@@ -16,7 +16,7 @@ class RelationshipsTest < ApplicationSystemTestCase
   end
 
   test "unfollow a user" do
-    visit user_path(users(:two))
+    visit user_path(users(2))
     within "form[class=edit_relationship]" do
       click_on "フォロー解除"
     end
