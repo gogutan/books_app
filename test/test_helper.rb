@@ -12,4 +12,10 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def login_user(email, password)
+    visit root_path
+    fill_in("user[email]", with: email)
+    fill_in("user[password]", with: password)
+    click_button "ログイン"
+  end
 end
