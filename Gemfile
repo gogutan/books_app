@@ -46,6 +46,13 @@ group :development do
   gem "rubocop", require: false
   gem "rubocop-performance"
   gem "rubocop-rails"
+  gem "capistrano"
+  gem "ed25519"
+  gem "bcrypt_pbkdf"
+  gem "capistrano-rbenv"
+  gem "capistrano-bundler"
+  gem "capistrano-rails"
+  gem "capistrano3-puma"
 end
 
 group :test do
