@@ -13,7 +13,7 @@ jobs: # ステップの集合
           RAILS_ENV: test
       - image: circleci/postgres:12.3 # データベースイメージ
         environment: # データベースの環境変数
-          POSTGRES_USER: circleci-demo-ruby
+          POSTGRES_USER: books_app
           POSTGRES_DB: books_app_test
           POSTGRES_PASSWORD: password
     steps: # 実行可能コマンドの集合
