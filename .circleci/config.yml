@@ -75,6 +75,10 @@ jobs: # ステップの集合
           command: bundle exec rubocop -c .rubocop.yml
 
       - run:
+          name: アセットプリコンパイル
+          command: bin/rails assets:precompile RAILS_ENV=test
+
+      - run:
           name: test を実行
           command: |
             bin/rails test:models
