@@ -87,3 +87,51 @@ jobs: # ステップの集合
       - store_test_results: # テストサマリー (https://circleci.com/docs/ja/2.0/collect-test-data/) に表示するテスト結果をアップロードします
           path: test_results
       # デプロイコンフィグの例については https://circleci.com/docs/ja/2.0/deployment-integrations/ を参照してください
+
+  deploy:
+    docker:
+      - image: circleci/ruby:2.6.3-stretch-node-browsers
+        environment: # プライマリコンテナの環境変数
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "65:fe:57:8e:76:06:14:18:8a:33:d9:9b:46:ae:00:42"
+
+      - checkout
+
+      - run:
+          name: Bundler を指定
+          command: bundle -v
+
+      - restore_cache:
+          keys:
+            - rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+            - rails-demo-bundle-v2-
+
+      - run:
+          name: バンドルインストール
+          command: bundle check || bundle install
+
+      - save_cache:
+          key: rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      - run:
+          name: テストが完了し、ブランチが Master である場合はデプロイ
+          command: bundle exec cap production deploy
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
